@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using TqkLibrary.Http.Api;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace TqkLibrary.Http.Api.Other
     /// <summary>
     /// 
     /// </summary>
-    public class SmmFansFasterApi : BaseApi
+    public class SmmFansFasterApi : BaseApiKeyApi
     {
         const string EndPoint = "https://smmfansfaster.com/api/v2";
         /// <summary>
@@ -16,6 +17,16 @@ namespace TqkLibrary.Http.Api.Other
         /// </summary>
         /// <param name="ApiKey"></param>
         public SmmFansFasterApi(string ApiKey) : base(ApiKey)
+        {
+
+        }
+
+        public SmmFansFasterApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public SmmFansFasterApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
 
         }

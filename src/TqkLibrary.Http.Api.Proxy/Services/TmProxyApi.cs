@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Runtime.InteropServices.ComTypes;
@@ -10,7 +11,7 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// 
     /// </summary>
-    public class TmProxyApi : BaseApi
+    public class TmProxyApi : BaseApiKeyApi
     {
         const string EndPoint = "https://tmproxy.com/api/proxy/";
         /// <summary>
@@ -18,6 +19,16 @@ namespace TqkLibrary.Http.Api.Proxy.Services
         /// </summary>
         /// <param name="ApiKey"></param>
         public TmProxyApi(string ApiKey) : base(ApiKey)
+        {
+
+        }
+
+        public TmProxyApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public TmProxyApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
 
         }

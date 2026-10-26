@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,10 +9,20 @@ using System.Threading.Tasks;
 
 namespace TqkLibrary.Http.Api.Captcha.Services
 {
-    public class OmoCaptcaComApi : BaseApi
+    public class OmoCaptcaComApi : BaseApiKeyApi
     {
         const string _EndPoint = "https://omocaptcha.com/v2";
         public OmoCaptcaComApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public OmoCaptcaComApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public OmoCaptcaComApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

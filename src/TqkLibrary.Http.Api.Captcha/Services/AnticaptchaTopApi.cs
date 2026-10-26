@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,23 @@ namespace TqkLibrary.Http.Api.Captcha.Services
     /// <summary>
     /// 
     /// </summary>
-    public class AnticaptchaTopApi : BaseApi
+    public class AnticaptchaTopApi : BaseApiKeyApi
     {
         readonly string _Endpoint = "https://anticaptcha.top";
         /// <summary>
         /// 
         /// </summary>
         public AnticaptchaTopApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public AnticaptchaTopApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public AnticaptchaTopApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

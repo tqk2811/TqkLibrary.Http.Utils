@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,7 +12,7 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// http://proxy.tinsoftsv.com/api/document_vi.php
     /// </summary>
-    public sealed class TinsoftProxyApi : BaseApi
+    public sealed class TinsoftProxyApi : BaseApiKeyApi
     {
         internal const string EndPoint = "http://proxy.tinsoftsv.com/api";
 
@@ -20,6 +21,14 @@ namespace TqkLibrary.Http.Api.Proxy.Services
         /// </summary>
         /// <param name="ApiKey"></param>
         public TinsoftProxyApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public TinsoftProxyApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public TinsoftProxyApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
 

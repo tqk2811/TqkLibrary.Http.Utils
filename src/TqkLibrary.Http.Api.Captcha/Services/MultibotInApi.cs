@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,10 +9,20 @@ using System.Threading.Tasks;
 
 namespace TqkLibrary.Http.Api.Captcha.Services
 {
-    public class MultibotInApi : BaseApi
+    public class MultibotInApi : BaseApiKeyApi
     {
         const string Endpoint = "http://api.multibot.in/";
         public MultibotInApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public MultibotInApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public MultibotInApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

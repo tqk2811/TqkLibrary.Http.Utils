@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace TqkLibrary.Http.Api.Captcha.Services
     /// <summary>
     /// 
     /// </summary>
-    public class RockCaptchaComApi : BaseApi
+    public class RockCaptchaComApi : BaseApiKeyApi
     {
         readonly string Endpoint = "https://api.rockcaptcha.com";
         /// <summary>
@@ -19,6 +21,16 @@ namespace TqkLibrary.Http.Api.Captcha.Services
         /// </summary>
         /// <param name="apiKey"></param>
         public RockCaptchaComApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public RockCaptchaComApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public RockCaptchaComApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace TqkLibrary.Http.Api.Phone
 {
-    public class SellotpvnComApi : BaseApi
+    public class SellotpvnComApi : BaseApiKeyApi
     {
         public enum NetworkProvider
         {
@@ -98,6 +100,16 @@ namespace TqkLibrary.Http.Api.Phone
 
         readonly ApiEndPoint apiEndPoint;
         public SellotpvnComApi(ApiEndPoint apiEndPoint, string token) : base(token)
+        {
+            this.apiEndPoint = apiEndPoint ?? throw new ArgumentNullException(nameof(apiEndPoint));
+        }
+
+        public SellotpvnComApi(ApiEndPoint apiEndPoint, string token, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(token, httpMessageHandler, disposeHandler)
+        {
+            this.apiEndPoint = apiEndPoint ?? throw new ArgumentNullException(nameof(apiEndPoint));
+        }
+
+        public SellotpvnComApi(ApiEndPoint apiEndPoint, string token, HttpClient httpClient) : base(token, httpClient)
         {
             this.apiEndPoint = apiEndPoint ?? throw new ArgumentNullException(nameof(apiEndPoint));
         }

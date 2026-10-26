@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,13 +11,21 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// 
     /// </summary>
-    public class TinsoftUserApi : BaseApi
+    public class TinsoftUserApi : BaseApiKeyApi
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="UserApiKey"></param>
         public TinsoftUserApi(string UserApiKey) : base(UserApiKey)
+        {
+        }
+
+        public TinsoftUserApi(string UserApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(UserApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public TinsoftUserApi(string UserApiKey, HttpClient httpClient) : base(UserApiKey, httpClient)
         {
         }
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -11,7 +12,7 @@ namespace TqkLibrary.Http.Api.Captcha.Services
     /// <summary>
     /// 
     /// </summary>
-    public sealed class TwoCaptchaApi : BaseApi
+    public sealed class TwoCaptchaApi : BaseApiKeyApi
     {
         private const string EndPoint = "https://2captcha.com";
         /// <summary>
@@ -19,6 +20,14 @@ namespace TqkLibrary.Http.Api.Captcha.Services
         /// </summary>
         /// <param name="ApiKey"></param>
         public TwoCaptchaApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public TwoCaptchaApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public TwoCaptchaApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
 

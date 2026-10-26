@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// 
     /// </summary>
-    public class CodeTextNowApi : BaseApi
+    public class CodeTextNowApi : BaseApiKeyApi
     {
         const string EndPoint = "http://codetextnow.com/api.php";
         /// <summary>
@@ -18,6 +20,16 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="apiKey"></param>
         public CodeTextNowApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public CodeTextNowApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public CodeTextNowApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

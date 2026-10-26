@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// 
     /// </summary>
-    public class AzProxyApi : BaseApi
+    public class AzProxyApi : BaseApiKeyApi
     {
         const string EndPoint = "http://proxy.shoplike.vn/Api/";
 
@@ -22,6 +23,16 @@ namespace TqkLibrary.Http.Api.Proxy.Services
         /// </summary>
         /// <param name="apiKey"></param>
         public AzProxyApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public AzProxyApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public AzProxyApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

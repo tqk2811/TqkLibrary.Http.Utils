@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using TqkLibrary.Http.Api;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 namespace TqkLibrary.Http.Api.Other.Others.FptAi.DataClass
@@ -13,7 +14,7 @@ namespace TqkLibrary.Http.Api.Other.Others.FptAi.DataClass
 
         public async Task<byte[]> Download(int timeout = 30000, int step = 2000, CancellationToken cancellationToken = default)
         {
-            using HttpClient httpClient = new HttpClient(NetSingleton.HttpClientHandler, false);
+            using HttpClient httpClient = new HttpClient(BaseApiKeyApi.SharedHttpClientHandler, false);
             using HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, this.async);
             using CancellationTokenSource cancellationTokenSource = new CancellationTokenSource(timeout);
 

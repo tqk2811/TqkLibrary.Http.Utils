@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// 
     /// </summary>
-    public sealed class OtpSimApi : BaseApi
+    public sealed class OtpSimApi : BaseApiKeyApi
     {
         private const string EndPoint = "http://otpsim.com/api";
         /// <summary>
@@ -19,6 +21,14 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="ApiKey"></param>
         public OtpSimApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public OtpSimApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public OtpSimApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
 

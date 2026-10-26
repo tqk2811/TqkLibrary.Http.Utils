@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using TqkLibrary.Http.Api;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace TqkLibrary.Http.Api.Other.ImagesHostApi.ImgurCom
     /// <summary>
     /// 
     /// </summary>
-    public class ImgurApi : BaseApi
+    public class ImgurApi : BaseApiKeyApi
     {
         private const string EndPoint = "https://api.imgur.com/3";
         /// <summary>
@@ -17,6 +18,14 @@ namespace TqkLibrary.Http.Api.Other.ImagesHostApi.ImgurCom
         /// </summary>
         /// <param name="ApiKey"></param>
         public ImgurApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public ImgurApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public ImgurApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
 

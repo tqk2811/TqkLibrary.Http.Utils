@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -8,10 +9,10 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace TqkLibrary.Http.Api.Proxy.Services
 {
-    public class ZingproxyComApi : BaseApi
+    public class ZingproxyComApi : BaseApiKeyApi
     {
         const string EndPoint = "https://api.zingproxy.com";
-        public ZingproxyComApi(string accessToken) : this(accessToken, NetSingleton.HttpClientHandler, false)
+        public ZingproxyComApi(string accessToken) : this(accessToken, BaseApiKeyApi.SharedHttpClientHandler, false)
         {
 
         }

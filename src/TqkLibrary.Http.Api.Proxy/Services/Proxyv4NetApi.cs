@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// 
     /// </summary>
-    public class Proxyv4NetApi : BaseApi
+    public class Proxyv4NetApi : BaseApiKeyApi
     {
         readonly string EndPoint;
         /// <summary>

@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TqkLibrary.Http.Api.Other.Others
@@ -6,12 +8,22 @@ namespace TqkLibrary.Http.Api.Other.Others
     /// <summary>
     /// 
     /// </summary>
-    public class GoogleTrans : BaseApi
+    public class GoogleTrans : BaseApiKeyApi
     {
         /// <summary>
         /// 
         /// </summary>
         public GoogleTrans() : base()
+        {
+
+        }
+
+        public GoogleTrans(HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public GoogleTrans(HttpClient httpClient) : base(httpClient)
         {
 
         }

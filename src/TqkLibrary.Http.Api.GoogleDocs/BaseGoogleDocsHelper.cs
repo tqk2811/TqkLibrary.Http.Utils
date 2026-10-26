@@ -1,4 +1,7 @@
-﻿using System;
+﻿using TqkLibrary.Http.Api;
+using TqkLibrary.Http.Streams;
+using TqkLibrary.Http.Extensions;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
@@ -8,7 +11,7 @@ using System.Net.Http.Headers;
 
 namespace TqkLibrary.Http.Api.GoogleDocs
 {
-    public abstract class BaseGoogleDocsHelper : BaseApi
+    public abstract class BaseGoogleDocsHelper : BaseApiKeyApi
     {
         public BaseGoogleDocsHelper() : this(
 #if NET5_0_OR_GREATER

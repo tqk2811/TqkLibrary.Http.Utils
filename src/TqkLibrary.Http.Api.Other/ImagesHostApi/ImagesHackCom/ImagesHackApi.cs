@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using TqkLibrary.Http.Api;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace TqkLibrary.Http.Api.Other.ImagesHostApi.ImagesHackCom
     /// <summary>
     /// 
     /// </summary>
-    public class ImagesHackApi : BaseApi
+    public class ImagesHackApi : BaseApiKeyApi
     {
         private const string EndPoint = "https://api.imageshack.com/v2/images";
         /// <summary>
@@ -18,6 +19,14 @@ namespace TqkLibrary.Http.Api.Other.ImagesHostApi.ImagesHackCom
         /// </summary>
         /// <param name="ApiKey"></param>
         public ImagesHackApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public ImagesHackApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public ImagesHackApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
 

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace TqkLibrary.Http.Api.Other.Others
     /// <summary>
     /// https://documenter.getpostman.com/view/9826758/TzzANcVu
     /// </summary>
-    public class CloneMailSieuReApi : BaseApi
+    public class CloneMailSieuReApi : BaseApiKeyApi
     {
         const string EndPoint = "https://www.clonemailsieure.site/api";
         readonly string userName;

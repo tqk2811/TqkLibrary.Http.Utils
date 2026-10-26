@@ -1,4 +1,5 @@
-﻿//using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+//using Newtonsoft.Json;
 //using System;
 //using System.Collections.Generic;
 //using System.Drawing;
@@ -12,7 +13,7 @@
 //    /// <summary>
 //    /// 
 //    /// </summary>
-//    public class FacebookApi : BaseApi
+//    public class FacebookApi : BaseApiKeyApi
 //    {
 //        private const string ApiEndPoint = "https://graph.facebook.com";
 //        private readonly string Api;

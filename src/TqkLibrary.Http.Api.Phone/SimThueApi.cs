@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -10,7 +12,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// https://simthue.com/vi/api/index
     /// </summary>
     [Obsolete("Dead service")]
-    public sealed class SimThueApi : BaseApi
+    public sealed class SimThueApi : BaseApiKeyApi
     {
         private const string EndPoint = "http://api.simthue.com";
         /// <summary>
@@ -18,6 +20,14 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="ApiKey"></param>
         public SimThueApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public SimThueApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public SimThueApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
 

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TqkLibrary.Http.Api.Mail.Services.TempMails
 {
-    public class Hunght1890Com : BaseApi
+    public class Hunght1890Com : BaseApiKeyApi
     {
         const string _Endpoint = "https://hunght1890.com";
         public Hunght1890Com()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TqkLibrary.Http.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -25,7 +26,7 @@ namespace TqkLibrary.Http.Api.Mail.Services.TempMails
     /// <summary>
     /// 
     /// </summary>
-    public class TempMailOrg : BaseApi
+    public class TempMailOrg : BaseApiKeyApi
     {
         /// <summary>
         /// https://mob2.temp-mail.org
@@ -55,6 +56,16 @@ namespace TqkLibrary.Http.Api.Mail.Services.TempMails
         /// 
         /// </summary>
         public TempMailOrg() : base()
+        {
+
+        }
+
+        public TempMailOrg(HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public TempMailOrg(HttpClient httpClient) : base(httpClient)
         {
 
         }

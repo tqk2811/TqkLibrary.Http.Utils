@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// http://ahasim.com/user/api
     /// </summary>
-    public class AhaSimComApi : BaseApi
+    public class AhaSimComApi : BaseApiKeyApi
     {
         const string EndPoint = "http://ahasim.com/api";
         /// <summary>
@@ -18,6 +20,16 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="apiKey"></param>
         public AhaSimComApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public AhaSimComApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public AhaSimComApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

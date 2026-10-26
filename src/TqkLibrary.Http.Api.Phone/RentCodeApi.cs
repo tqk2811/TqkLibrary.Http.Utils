@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -10,7 +12,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// 
     /// </summary>
-    public sealed class RentCodeApi : BaseApi
+    public sealed class RentCodeApi : BaseApiKeyApi
     {
         private const string EndPoint = "https://api.rentcode.net/api/v2/";
 
@@ -19,6 +21,14 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="ApiKey"></param>
         public RentCodeApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public RentCodeApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public RentCodeApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
 

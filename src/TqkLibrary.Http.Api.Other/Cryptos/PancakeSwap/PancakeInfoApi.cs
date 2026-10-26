@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using TqkLibrary.Http.Api.Other.Cryptos.PancakeSwap.DataClass;
@@ -8,13 +10,23 @@ namespace TqkLibrary.Http.Api.Other.Cryptos.PancakeSwap
     /// <summary>
     /// 
     /// </summary>
-    public class PancakeInfoApi : BaseApi
+    public class PancakeInfoApi : BaseApiKeyApi
     {
         const string EndPoint = "https://api.pancakeswap.info/api/v2";
         /// <summary>
         /// 
         /// </summary>
         public PancakeInfoApi() : base()
+        {
+
+        }
+
+        public PancakeInfoApi(HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public PancakeInfoApi(HttpClient httpClient) : base(httpClient)
         {
 
         }

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Threading;
@@ -9,7 +11,7 @@ namespace TqkLibrary.Http.Api.Captcha.Services
     /// <summary>
     /// https://anti-captcha.com/apidoc/image
     /// </summary>
-    public class AntiCaptchaApi : BaseApi
+    public class AntiCaptchaApi : BaseApiKeyApi
     {
         private class CreateTaskJson
         {
@@ -46,6 +48,14 @@ namespace TqkLibrary.Http.Api.Captcha.Services
         /// <exception cref="ArgumentNullException"></exception>
         /// <param name="ApiKey">ApiKey</param>
         public AntiCaptchaApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public AntiCaptchaApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public AntiCaptchaApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
         /// <summary>

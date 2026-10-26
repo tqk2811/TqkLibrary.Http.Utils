@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TqkLibrary.Http.Api;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -11,7 +12,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// https://chothuesimcode.com/account/api
     /// </summary>
-    public sealed class ChoThueSimCodeApi : BaseApi
+    public sealed class ChoThueSimCodeApi : BaseApiKeyApi
     {
         private const string EndPoint = "https://chothuesimcode.com/api";
         /// <summary>
@@ -19,6 +20,14 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="ApiKey"></param>
         public ChoThueSimCodeApi(string ApiKey) : base(ApiKey)
+        {
+        }
+
+        public ChoThueSimCodeApi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public ChoThueSimCodeApi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
         }
 

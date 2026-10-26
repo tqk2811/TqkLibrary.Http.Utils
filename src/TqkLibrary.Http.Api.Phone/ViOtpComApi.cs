@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +14,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// https://viotp.com/Account/ApiDocument
     /// </summary>
-    public class ViOtpComApi : BaseApi
+    public class ViOtpComApi : BaseApiKeyApi
     {
         const string EndPoint = "https://api.viotp.com";
         /// <summary>
@@ -20,6 +22,16 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="apiKey"></param>
         public ViOtpComApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public ViOtpComApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public ViOtpComApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

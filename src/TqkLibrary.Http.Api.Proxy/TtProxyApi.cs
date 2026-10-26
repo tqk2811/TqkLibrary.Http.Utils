@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,7 +12,7 @@ namespace TqkLibrary.Http.Api.Proxy
     /// <summary>
     /// 
     /// </summary>
-    public class TtProxyApi : BaseApi
+    public class TtProxyApi : BaseApiKeyApi
     {
         const string EndPoint = "https://api.ttproxy.com/v1/";
         readonly string secret;
@@ -22,6 +23,18 @@ namespace TqkLibrary.Http.Api.Proxy
         /// <param name="secret"></param>
         /// <exception cref="ArgumentNullException"></exception>
         public TtProxyApi(string license, string secret) : base(license)
+        {
+            if (string.IsNullOrEmpty(secret)) throw new ArgumentNullException(nameof(secret));
+            this.secret = secret;
+        }
+
+        public TtProxyApi(string license, string secret, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(license, httpMessageHandler, disposeHandler)
+        {
+            if (string.IsNullOrEmpty(secret)) throw new ArgumentNullException(nameof(secret));
+            this.secret = secret;
+        }
+
+        public TtProxyApi(string license, string secret, HttpClient httpClient) : base(license, httpClient)
         {
             if (string.IsNullOrEmpty(secret)) throw new ArgumentNullException(nameof(secret));
             this.secret = secret;

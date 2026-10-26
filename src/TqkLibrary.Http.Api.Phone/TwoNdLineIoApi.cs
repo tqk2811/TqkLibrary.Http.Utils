@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// https://2ndline.io/documentapi
     /// </summary>
-    public class TwoNdLineIoApi : BaseApi
+    public class TwoNdLineIoApi : BaseApiKeyApi
     {
         static readonly string EndPoint = "https://2ndline.io/apiv1";
         /// <summary>
@@ -18,6 +20,16 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="apiKey"></param>
         public TwoNdLineIoApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public TwoNdLineIoApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public TwoNdLineIoApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

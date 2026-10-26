@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// https://docs.5sim.net/
     /// </summary>
-    public class FiveSimNetApi : BaseApi
+    public class FiveSimNetApi : BaseApiKeyApi
     {
         const string EndPoint = "https://5sim.net/v1";
         /// <summary>
@@ -18,6 +20,16 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="apiKey"></param>
         public FiveSimNetApi(string apiKey) : base(apiKey)
+        {
+            _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
+        }
+
+        public FiveSimNetApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+            _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
+        }
+
+        public FiveSimNetApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
             _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
         }

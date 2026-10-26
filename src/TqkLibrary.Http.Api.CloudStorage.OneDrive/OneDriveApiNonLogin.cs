@@ -1,4 +1,6 @@
-﻿using Microsoft.Graph.Models;
+﻿using TqkLibrary.Http.Streams;
+using TqkLibrary.Http.Extensions;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Serialization.Json;
 using Newtonsoft.Json;
 using System;

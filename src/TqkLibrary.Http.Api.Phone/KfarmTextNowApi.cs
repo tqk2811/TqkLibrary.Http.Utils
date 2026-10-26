@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace TqkLibrary.Http.Api.Phone
     /// <summary>
     /// 
     /// </summary>
-    public class KfarmTextNowApi : BaseApi
+    public class KfarmTextNowApi : BaseApiKeyApi
     {
         const string EndPoint = "http://kfarm.vn/api/TextNow/";
         /// <summary>
@@ -20,6 +21,14 @@ namespace TqkLibrary.Http.Api.Phone
         /// </summary>
         /// <param name="token"></param>
         public KfarmTextNowApi(string token) : base(token)
+        {
+        }
+
+        public KfarmTextNowApi(string token, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(token, httpMessageHandler, disposeHandler)
+        {
+        }
+
+        public KfarmTextNowApi(string token, HttpClient httpClient) : base(token, httpClient)
         {
         }
         /// <summary>

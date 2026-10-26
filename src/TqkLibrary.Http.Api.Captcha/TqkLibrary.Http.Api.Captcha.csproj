@@ -3,7 +3,7 @@
 	<Import Project="..\ProjectBuildProperties.targets" />
 	
 	<ItemGroup>
-	  <ProjectReference Include="..\..\TqkLibrary.Http\src\TqkLibrary.Http\TqkLibrary.Http.csproj" />
+	  <ProjectReference Include="..\TqkLibrary.Http.Api\TqkLibrary.Http.Api.csproj" />
 	</ItemGroup>
 
 </Project>

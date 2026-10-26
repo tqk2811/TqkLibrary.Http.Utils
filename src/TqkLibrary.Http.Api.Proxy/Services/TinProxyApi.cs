@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,7 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// https://tinproxy.com/
     /// </summary>
-    public class TinProxyApi : BaseApi
+    public class TinProxyApi : BaseApiKeyApi
     {
         const string EndPoint = "https://api.tinproxy.com/";
         /// <summary>
@@ -20,6 +22,16 @@ namespace TqkLibrary.Http.Api.Proxy.Services
         /// </summary>
         /// <param name="apiKey"></param>
         public TinProxyApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public TinProxyApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public TinProxyApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

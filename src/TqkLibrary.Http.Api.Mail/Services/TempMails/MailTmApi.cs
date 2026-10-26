@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TqkLibrary.Http.Api;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
@@ -10,13 +11,23 @@ namespace TqkLibrary.Http.Api.Mail.Services.TempMails
     /// <summary>
     /// https://api.mail.tm/
     /// </summary>
-    public class MailTmApi : BaseApi
+    public class MailTmApi : BaseApiKeyApi
     {
         const string EndPoint = "https://api.mail.tm";
         /// <summary>
         /// 
         /// </summary>
         public MailTmApi() : base()
+        {
+
+        }
+
+        public MailTmApi(HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public MailTmApi(HttpClient httpClient) : base(httpClient)
         {
 
         }

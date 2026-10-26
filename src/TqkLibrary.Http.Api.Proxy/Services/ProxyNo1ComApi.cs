@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// 
     /// </summary>
-    public class ProxyNo1ComUserApi : BaseApi
+    public class ProxyNo1ComUserApi : BaseApiKeyApi
     {
         const string EndPoint = "https://app.proxyno1.com/api";
         /// <summary>
@@ -21,6 +23,16 @@ namespace TqkLibrary.Http.Api.Proxy.Services
         /// </summary>
         /// <param name="apiKey"></param>
         public ProxyNo1ComUserApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public ProxyNo1ComUserApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public ProxyNo1ComUserApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }
@@ -147,13 +159,23 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// 
     /// </summary>
-    public class ProxyNo1ComApi : BaseApi
+    public class ProxyNo1ComApi : BaseApiKeyApi
     {
         const string EndPoint = "https://app.proxyno1.com/api";
         /// <summary>
         /// 
         /// </summary>
         public ProxyNo1ComApi(ProxyNo1ComKeyInfo keyInfo) : base(keyInfo?.Key)
+        {
+
+        }
+
+        public ProxyNo1ComApi(ProxyNo1ComKeyInfo keyInfo, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(keyInfo?.Key, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public ProxyNo1ComApi(ProxyNo1ComKeyInfo keyInfo, HttpClient httpClient) : base(keyInfo?.Key, httpClient)
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -21,7 +22,7 @@ namespace TqkLibrary.Http.Api.Other
         /// <returns></returns>
         public static async Task<MyIp> GetCurrentIpAdreess()
         {
-            using HttpClient httpClient = new HttpClient(NetSingleton.HttpClientHandler, false);
+            using HttpClient httpClient = new HttpClient(BaseApiKeyApi.SharedHttpClientHandler, false);
             using HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, "https://api.myip.com");
             using HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage, HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<MyIp>(await httpResponseMessage.EnsureSuccessStatusCode().Content.ReadAsStringAsync().ConfigureAwait(false))!;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TqkLibrary.Http.Api;
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
@@ -10,7 +11,7 @@ namespace TqkLibrary.Http.Api.Other.Others.FptAi
     /// <summary>
     /// 
     /// </summary>
-    public class TextToSpeechFptAi : BaseApi
+    public class TextToSpeechFptAi : BaseApiKeyApi
     {
         const string EndPoint = "https://api.fpt.ai/hmi/tts";
         readonly string version = "/v5";
@@ -19,6 +20,16 @@ namespace TqkLibrary.Http.Api.Other.Others.FptAi
         /// </summary>
         /// <param name="ApiKey"></param>
         public TextToSpeechFptAi(string ApiKey) : base(ApiKey)
+        {
+
+        }
+
+        public TextToSpeechFptAi(string ApiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(ApiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public TextToSpeechFptAi(string ApiKey, HttpClient httpClient) : base(ApiKey, httpClient)
         {
 
         }

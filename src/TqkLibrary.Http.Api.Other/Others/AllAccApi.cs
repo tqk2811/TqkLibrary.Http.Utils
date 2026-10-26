@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,7 +11,7 @@ namespace TqkLibrary.Http.Api.Other.Others
     /// <summary>
     /// 
     /// </summary>
-    public class AllAccApi : BaseApi
+    public class AllAccApi : BaseApiKeyApi
     {
         const string EndPoint = "http://allacc.vn/api/";
         /// <summary>
@@ -17,6 +19,16 @@ namespace TqkLibrary.Http.Api.Other.Others
         /// </summary>
         /// <param name="apiKey"></param>
         public AllAccApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public AllAccApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public AllAccApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Graph.Models;
+﻿using TqkLibrary.Http.Api;
+using Microsoft.Graph.Models;
 using Microsoft.Identity.Client;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Authentication;
@@ -24,7 +25,7 @@ namespace TqkLibrary.Http.Api.Mail.OutlookGraphApi
         readonly bool _disposeHandler;
         readonly HttpClient _httpClient;
         public HttpclientAuthenticationProvider(IAuthenticationRefreshToken authenticationRefreshToken)
-            : this(authenticationRefreshToken, NetSingleton.HttpClientHandler, false)
+            : this(authenticationRefreshToken, BaseApiKeyApi.SharedHttpClientHandler, false)
         {
 
         }

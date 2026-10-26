@@ -1,4 +1,6 @@
-﻿using System;
+﻿using TqkLibrary.Http.Api;
+using TqkLibrary.Http.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace TqkLibrary.Http.Api.Proxy.Services
     /// <summary>
     /// https://github.com/bocproxy/dcom-proxy/wiki/API-Documentation
     /// </summary>
-    public class BocProxyApi : BaseApi
+    public class BocProxyApi : BaseApiKeyApi
     {
         readonly Uri _domain;
         /// <summary>

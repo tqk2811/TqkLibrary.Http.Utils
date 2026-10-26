@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net.Http;
+using TqkLibrary.Http.Api;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace TqkLibrary.Http.Api.Mail.Services.BuyMailApi
     /// <summary>
     /// 
     /// </summary>
-    public class DongVanFbApi : BaseApi
+    public class DongVanFbApi : BaseApiKeyApi
     {
         const string EndPoint = "https://api.dongvanfb.com/";
         const string EndPointTools = " https://tools.dongvanfb.com/api/";
@@ -20,6 +22,16 @@ namespace TqkLibrary.Http.Api.Mail.Services.BuyMailApi
         /// </summary>
         /// <param name="apiKey"></param>
         public DongVanFbApi(string apiKey) : base(apiKey)
+        {
+
+        }
+
+        public DongVanFbApi(string apiKey, HttpMessageHandler httpMessageHandler, bool disposeHandler = false) : base(apiKey, httpMessageHandler, disposeHandler)
+        {
+
+        }
+
+        public DongVanFbApi(string apiKey, HttpClient httpClient) : base(apiKey, httpClient)
         {
 
         }
