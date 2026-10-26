@@ -9,7 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\TqkLibrary.Http\TqkLibrary.Http.csproj" />
+		<ProjectReference Include="..\..\TqkLibrary.Http\src\TqkLibrary.Http\TqkLibrary.Http.csproj" />
 	</ItemGroup>
 
 </Project>

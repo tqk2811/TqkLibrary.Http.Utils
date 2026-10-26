@@ -1,0 +1,42 @@
+<Project>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+		<LangVersion>12.0</LangVersion>
+		<PreserveCompilationContext>false</PreserveCompilationContext>
+		<GenerateDependencyFile>false</GenerateDependencyFile>
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<Nullable>enable</Nullable>
+		<!--<GenerateDocumentationFile>True</GenerateDocumentationFile>-->
+		<PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
+	</PropertyGroup>
+
+	<!-- NuSpec support for dotnet pack -->
+	<PropertyGroup Condition="Exists('$(MSBuildProjectDirectory)\$(MSBuildProjectName).nuspec')">
+		<NuspecFile>$(MSBuildProjectName).nuspec</NuspecFile>
+	</PropertyGroup>
+
+	<!-- Set version after GitVersion runs -->
+	<Target Name="SetVersionFromGitVersion" AfterTargets="GetVersion">
+		<PropertyGroup>
+			<Version>$(GitVersion_Major).$(GitVersion_Minor).$(GitVersion_CommitsSinceVersionSource)</Version>
+			<PackageVersion>$(Version)</PackageVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="Exists('$(MSBuildProjectDirectory)\$(MSBuildProjectName).nuspec')">
+			<NuspecProperties>id=$(MSBuildProjectName);version=$(Version)</NuspecProperties>
+		</PropertyGroup>
+	</Target>
+
+	<ItemGroup>
+		<PackageReference Include="GitVersion.MsBuild">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<!-- Hai package này áp cho MỌI project vì file targets này được từng csproj import. Phiên bản
+		     nằm ở Directory.Packages.props — đừng nâng bằng PackageReference Update trong một csproj
+		     lẻ: TqkLibrary.CompilerServices chảy tiếp sang các project phụ thuộc, nên nâng riêng một
+		     project là những project khác thấy downgrade (NU1605, repo này bật warning-as-error) và
+		     cả solution không build được. -->
+		<PackageReference Include="TqkLibrary.CompilerServices" />
+	</ItemGroup>
+
+</Project>
