@@ -9,7 +9,7 @@
 		<projectUrl>https://github.com/tqk2811/TqkLibrary.Http.Utils</projectUrl>
 		<repository type="git" url="https://github.com/tqk2811/TqkLibrary.Http.Utils.git"/>
 		<license type="expression">MIT</license>
-		<readme>docs\README.MD</readme>
+		<readme>docs\README.md</readme>
 		<dependencies>
 			<group targetFramework="netstandard2.0">
 				<dependency id="TqkLibrary.Http" version="2.0.0"/>
@@ -28,7 +28,7 @@
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="..\README.MD" target="docs\README.MD" />
+		<file src="..\..\README.md" target="docs\README.md" />
 		<file src="bin\Release\**\$id$.dll" target="lib\" />
 		<file src="bin\Release\**\$id$.pdb" target="lib\" />
 		<file src="bin\Release\**\$id$.xml" target="lib\" />
