@@ -1,6 +1,3 @@
-[submodule "TqkLibrary.Http"]
-	path = TqkLibrary.Http
-	url = https://github.com/tqk2811/TqkLibrary.Http.git
 [submodule "CsharpNugetPush"]
 	path = CsharpNugetPush
 	url = https://github.com/tqk2811/CsharpNugetPush.git

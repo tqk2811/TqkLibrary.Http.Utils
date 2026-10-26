@@ -26,8 +26,6 @@
     <ProjectReference Include="..\TqkLibrary.Http.Api.Mail\TqkLibrary.Http.Api.Mail.csproj" />
     <ProjectReference Include="..\TqkLibrary.Http.Api.Other\TqkLibrary.Http.Api.Other.csproj" />
     <ProjectReference Include="..\TqkLibrary.Http.Api.Phone\TqkLibrary.Http.Api.Phone.csproj" />
-    <ProjectReference Include="..\TqkLibrary.Http.Api.Proxy\TqkLibrary.Http.Api.Proxy.csproj" />
-    <ProjectReference Include="..\..\TqkLibrary.Http\src\TqkLibrary.Http\TqkLibrary.Http.csproj" />
-  </ItemGroup>
+    <ProjectReference Include="..\TqkLibrary.Http.Api.Proxy\TqkLibrary.Http.Api.Proxy.csproj" />  </ItemGroup>
 
 </Project>

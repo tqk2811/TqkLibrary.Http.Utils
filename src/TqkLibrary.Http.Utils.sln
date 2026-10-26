@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TqkLibrary.Http.Api.Captcha", "TqkLibrary.Http.Api.Captcha\TqkLibrary.Http.Api.Captcha.csproj", "{A14492DE-5FCB-4217-BCBB-19659E7704C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TqkLibrary.Http", "..\TqkLibrary.Http\src\TqkLibrary.Http\TqkLibrary.Http.csproj", "{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TqkLibrary.Http.Api.CloudStorage.Dropbox", "TqkLibrary.Http.Api.CloudStorage.Dropbox\TqkLibrary.Http.Api.CloudStorage.Dropbox.csproj", "{E8EEE21E-63B3-44F7-AB32-B70D1B804D39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TqkLibrary.Http.Api.CloudStorage.GoogleDrive", "TqkLibrary.Http.Api.CloudStorage.GoogleDrive\TqkLibrary.Http.Api.CloudStorage.GoogleDrive.csproj", "{741FA182-AD8F-4102-AD87-04A78FA28A77}"
@@ -36,8 +34,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TqkLibrary.Http.Api.Phone", "TqkLibrary.Http.Api.Phone\TqkLibrary.Http.Api.Phone.csproj", "{D30D5148-9551-42B1-A513-FEF8BE2D7480}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{06E90FA2-AD58-4CFA-A4DA-39C47B2EB86A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{609F40C5-C560-40E6-76C7-691311A42DF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TqkLibrary.Http.Api", "TqkLibrary.Http.Api\TqkLibrary.Http.Api.csproj", "{68EB95ED-7548-4D0E-B742-FCAF78905C6D}"
 EndProject
@@ -75,18 +71,6 @@ Global
 		{A14492DE-5FCB-4217-BCBB-19659E7704C2}.Release|x64.Build.0 = Release|Any CPU
 		{A14492DE-5FCB-4217-BCBB-19659E7704C2}.Release|x86.ActiveCfg = Release|Any CPU
 		{A14492DE-5FCB-4217-BCBB-19659E7704C2}.Release|x86.Build.0 = Release|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Debug|x64.Build.0 = Debug|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Debug|x86.Build.0 = Debug|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Release|x64.ActiveCfg = Release|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Release|x64.Build.0 = Release|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Release|x86.ActiveCfg = Release|Any CPU
-		{0AE02D84-7A45-408F-9EA3-9FA4702CC8E9}.Release|x86.Build.0 = Release|Any CPU
 		{E8EEE21E-63B3-44F7-AB32-B70D1B804D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E8EEE21E-63B3-44F7-AB32-B70D1B804D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8EEE21E-63B3-44F7-AB32-B70D1B804D39}.Debug|x64.ActiveCfg = Debug|Any CPU

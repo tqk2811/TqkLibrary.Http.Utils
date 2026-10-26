@@ -15,17 +15,9 @@
 		<PackageVersion Include="TqkLibrary.CompilerServices" Version="1.0.0.3" />
 	</ItemGroup>
 
-	<!-- TqkLibrary.Http đến từ submodule và restore theo Directory.Packages.props của chính nó; nhóm
-	     dưới đây phải giữ khớp bản đó, lệch là các project Api thấy downgrade (NU1605). -->
+	<!-- TqkLibrary.Http lấy từ NuGet; các dependency của nó đi theo gói (transitive). -->
 	<ItemGroup Label="TqkLibrary.Http">
-		<PackageVersion Include="Microsoft.Bcl.HashCode" Version="6.0.0" />
-		<PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.12" />
-		<PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
-		<PackageVersion Include="System.Net.Http" Version="4.3.4" />
-		<PackageVersion Include="TqkLibrary.Utils" Version="1.0.0" />
-		<!-- Bản cho net8.0. netstandard2.0 cần nhánh 2.x nên chỗ đó dùng VersionOverride trong
-		     TqkLibrary.Http.csproj — CPM chỉ cho MỘT PackageVersion cho mỗi package id. -->
-		<PackageVersion Include="Microsoft.Net.Http.Headers" Version="8.0.31" />
+		<PackageVersion Include="TqkLibrary.Http" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup Label="Api">
