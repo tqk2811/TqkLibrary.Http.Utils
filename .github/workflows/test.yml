@@ -1,0 +1,38 @@
+name: Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  workflow_call:
+
+jobs:
+  test:
+    # windows-latest: same runner as the release job, so the build matches what gets packed.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # TestProject holds live integration tests (real Dropbox/Google/Microsoft/proxy services and
+      # personal tokens) that cannot run on a CI runner, and the solution's test/console projects are not
+      # part of any package. CI therefore gates on a Release build of every packable project (the
+      # ones with a nuspec); run TestProject locally with real credentials.
+      # GitVersion is skipped: a build check does not need a real version (and it fails on branches
+      # without a full SemVer tag).
+      - name: Build packable projects
+        shell: pwsh
+        run: |
+          $projects = @(Get-ChildItem src -Recurse -Filter *.nuspec | Where-Object { $_.DirectoryName -notmatch '[\/](obj|bin)([\/]|$)' } | ForEach-Object {
+            Join-Path $_.DirectoryName ($_.BaseName + ".csproj")
+          })
+          if ($projects.Count -eq 0) { Write-Error "No packable project found"; exit 1 }
+          foreach ($p in $projects) {
+            dotnet build $p -c Release -p:DisableGitVersionTask=true -p:Version=0.0.0
+            if ($LASTEXITCODE -ne 0) { Write-Error "Build failed: $p"; exit 1 }
+          }
